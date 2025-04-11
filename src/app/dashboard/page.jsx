@@ -41,9 +41,11 @@ function Dashboard() {
     </div>
 
     <div className="d-flex flex-column flex-sm-row">
-      <button className="btn btn-sm btn-outline-danger mb-2 mb-sm-0 me-sm-2" style={{marginRight:'10px'}}>
-        <i className="fa fa-thumbs-down"></i> Negative Review
-      </button>
+      <Link href={'/negreview'}>
+        <button className="btn btn-sm btn-outline-danger mb-2 mb-sm-0 me-sm-2" style={{marginRight:'10px'}}>
+          <i className="fa fa-thumbs-down"></i> Negative Review
+        </button>
+      </Link>
       <button className="btn btn-sm btn-primary">
         <i className="fa fa-download"></i> Download
       </button>

@@ -110,58 +110,52 @@ function temptwo() {
     <form>
       <div className="row g-3">
         {/* Name Section */}
-        <div className="col-md-6">
+        <div className="col-md-6 mb-3">
           <label htmlFor="firstName" className="form-label">First Name*</label>
           <input type="text" className="form-control" id="firstName" placeholder="John" required />
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 mb-3">
           <label htmlFor="lastName" className="form-label">Last Name*</label>
           <input type="text" className="form-control" id="lastName" placeholder="Doe" required />
         </div>
 
         {/* Contact Info */}
-        <div className="col-md-6">
+        <div className="col-md-6 mb-3">
           <label htmlFor="phone" className="form-label">Phone Number*</label>
           <input type="tel" className="form-control" id="phone" placeholder="+91 9876543210" required />
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 mb-3">
           <label htmlFor="email" className="form-label">Email*</label>
           <input type="email" className="form-control" id="email" placeholder="your@email.com" required />
         </div>
 
         {/* Address Section */}
-        <div className="col-12">
+        <div className="col-12 mb-3">
           <label htmlFor="address1" className="form-label">Address Line 1*</label>
           <input type="text" className="form-control" id="address1" placeholder="House/Flat No, Building" required />
         </div>
-        <div className="col-12">
+        <div className="col-12 mb-3">
           <label htmlFor="address2" className="form-label">Address Line 2</label>
           <input type="text" className="form-control" id="address2" placeholder="Area, Street, Landmark" />
         </div>
 
         {/* Location Details */}
-        <div className="col-md-4">
+        <div className="col-md-4 mb-3">
           <label htmlFor="city" className="form-label">City*</label>
           <input type="text" className="form-control" id="city" placeholder="Mumbai" required />
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 mb-3">
           <label htmlFor="state" className="form-label">State*</label>
-          <select className="form-select" id="state" required>
-            <option value="">Select State</option>
-            <option>Maharashtra</option>
-            <option>Delhi</option>
-            <option>Karnataka</option>
-            <option>Tamil Nadu</option>
-            <option>Other</option>
-          </select>
+          <input type="text" className="form-control" id="state" placeholder="Kerala" required />
+
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 ">
           <label htmlFor="zip" className="form-label">PIN Code*</label>
           <input type="text" className="form-control" id="zip" placeholder="400001" required />
         </div>
 
         {/* Additional Options */}
-        <div className="col-12">
+        {/* <div className="col-12 mb-3">
           <div className="form-check">
             <input className="form-check-input" type="checkbox" id="saveAddress" />
             <label className="form-check-label" htmlFor="saveAddress">
@@ -169,22 +163,24 @@ function temptwo() {
             </label>
           </div>
         </div>
-        <div className="col-12">
+        <div className="col-12 ">
           <div className="form-check">
             <input className="form-check-input" type="checkbox" id="billingSame" defaultChecked />
             <label className="form-check-label" htmlFor="billingSame">
               Billing address same as shipping address
             </label>
           </div>
-        </div>
+        </div> */}
       </div>
-    </form>
-  </div>
-  <div className="modal-footer border-top-0">
+      <div className="modal-footer border-top-0">
     <button type="button" className="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
     <button type="button" className="btn btn-primary px-4">Save Address</button>
   </div>
-</div>        </div>
+
+    </form>
+  </div>
+</div>     
+   </div>
       </div>
     </div>
   );

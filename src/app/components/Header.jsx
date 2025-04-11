@@ -46,10 +46,10 @@ function Header() {
               <Link href="/" className="nav__link" onClick={closeMenu}>Home</Link>
             </li>
             <li className="nav__item">
-              <Link href="/register" className="nav__link" onClick={closeMenu}>About Us</Link>
+              <Link href="/aboutus" className="nav__link" onClick={closeMenu}>About Us</Link>
             </li>
             <li className="nav__item">
-              <Link href="#" className="nav__link" onClick={closeMenu}>Contact</Link>
+              <Link href="/contactus" className="nav__link" onClick={closeMenu}>Contact</Link>
             </li>
             <li className="nav__item">
               <Link href="/login" className="nav__link" onClick={closeMenu}>Login</Link>
