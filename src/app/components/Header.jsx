@@ -17,7 +17,7 @@ function Header() {
     <header className="header py-3">
       <div className="header__container">
         {/* Brand Logo */}
-        <div className="header__brand">
+        <div className="header__brand ">
           <Link href="/" className="header__logo-link">
             <img 
               src="/images/resources/logo-5.png" 

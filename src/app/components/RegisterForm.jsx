@@ -1,14 +1,20 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { registerApi } from "../services/allApi";
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 
 const RegisterForm = () => {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    remember: false,
+    c_password:""
+    // remember: false,
   });
 
   const handleChange = (e) => {
@@ -19,10 +25,35 @@ const RegisterForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =  async(e) => {
     e.preventDefault();
+    const result= await registerApi(formData)
+    console.log(result);
+
+    if (result.status === 200) {
+      // sessionStorage.setItem("token", result.data.token);
+      // sessionStorage.setItem("existingUser", JSON.stringify(result.data.user));
+      // Show success toast
+      toast.success("register successful!", {
+        position: "top-center",
+        autoClose: 1000,
+        theme: "colored",
+      });
+      console.log(result);
+      
+
+      setTimeout(() => router.push('/login'), 2000);
+        } else {
+      toast.error("please fill the form completely", {
+        position: "top-center",
+        autoClose: 1000,
+        theme: "colored",
+      });
+      
+    }
+    
     console.log("Form submitted", formData);
-    // Add your register API logic here
+    // Add your login API call here
   };
 
   return (
@@ -92,6 +123,29 @@ const RegisterForm = () => {
           </div>
         </div>
       </div>
+      <div className="col-xl-12">
+        <div className="input-field">
+          <input
+            type="text"
+            name="c_password"
+            placeholder="Re-enter Password"
+            value={formData.c_password}
+            onChange={handleChange}
+            style={{
+                borderRadius: "50px",
+                padding: "10px 20px",
+                border: "1px solid #ccc",
+                width: "100%",
+                outline: "none",
+              }}
+          />
+          <div className="icon-holder">
+          <i className="fa fa-lock" aria-hidden="true" ></i>
+          </div>
+        </div>
+      </div>
+
+
 
       <div className="col-xl-12">
         <div className="row d-flex justify-content-center">

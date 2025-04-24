@@ -2,13 +2,13 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Link from 'next/link';
+import BusinessForm from '../components/BusinessForm';
 
 function Dashboard() {
   const [activeSection, setActiveSection] = useState('create');
   const [showModal, setShowModal] = useState(false);
 
   const handleOpenModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
 
   const renderSection = () => {
     switch (activeSection) {
@@ -112,53 +112,7 @@ function Dashboard() {
             style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
             role="dialog"
           >
-  <div className="modal-dialog modal-dialog-centered" role="document">
-    <div className="modal-content shadow-lg rounded-4 border-0">
-      <div className="modal-header bg-primary text-white rounded-top-4 px-4 py-3">
-        <h5 className="modal-title fw-semibold">🚀 Create Your QR</h5>
-        <button
-          type="button"
-          className="btn-close btn-close-white"
-          onClick={handleCloseModal}
-        ></button>
-      </div>
-      <div className="modal-body px-4 py-4 bg-light rounded-bottom-4">
-        <form>
-          <div className="mb-3">
-            <label className="form-label fw-semibold">📛 Business Name</label>
-            <input
-              type="text"
-              className="form-control rounded-3 shadow-sm"
-              placeholder="Enter your business name"
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label fw-semibold">📧 Email</label>
-            <input
-              type="email"
-              className="form-control rounded-3 shadow-sm"
-              placeholder="Enter your email address"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="form-label fw-semibold">🔗 Business Link</label>
-            <input
-              type="url"
-              className="form-control rounded-3 shadow-sm"
-              placeholder="https://yourbusiness.com"
-            />
-          </div>
-          <div className="text-end">
-           <Link href={'/template'}>
-              <button type="submit" className="btn btn-success px-4 py-2 rounded-3 shadow">
-                Generate QR
-              </button>
-           </Link>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+            <BusinessForm/>
           </div>
         )}
   

@@ -1,5 +1,7 @@
 import "./globals.css";
 import Script from "next/script";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export const metadata = {
@@ -34,6 +36,7 @@ export default function RootLayout({ children }) {
         <button className="scroll-top scroll-to-target style4" data-target="html">
           <span className="icon-down-arrow"></span>
         </button>
+        <ToastContainer />
 
 
         {/* Load JavaScript Files */}

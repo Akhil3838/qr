@@ -1,24 +1,40 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Header from '../components/Header';
+import { secondaryTempApi } from '../services/allApi';
+import { imageBasePath } from '../services/imgUrl';
 
 function temptwo() {
   const [selectedTemplate, setSelectedTemplate] = useState(null);
+  const [template, setTemplates] = useState([]);
 
-  const templates = [
-    { id: 1, title: 'Template 1', description: 'Clean and simple layout', image: '/images/temp.jpg', price: '$49' },
-    { id: 2, title: 'Template 2', description: 'Colorful and modern', image: '/images/temp1.jpg', price: '$59' },
-    { id: 3, title: 'Template 3', description: 'Professional and minimal', image: '/images/temp.jpg', price: '$69' },
-    { id: 4, title: 'Template 4', description: 'Dark-themed and stylish', image: '/images/temp1.jpg', price: '$79' },
-    { id: 5, title: 'Template 5', description: 'Portfolio showcase style', image: '/images/temp.jpg', price: '$89' },
-    { id: 6, title: 'Template 6', description: 'Elegant and soft tones', image: '/images/temp1.jpg', price: '$99' }
-  ];
 
   const handleSelect = (id) => {
     setSelectedTemplate(id);
   };
+
+    useEffect(() => {
+      const fetchTemplates = async () => {
+        const token = sessionStorage.getItem("token");
+        const reqHeader = {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        };
+        try {
+          const res = await secondaryTempApi(reqHeader);
+          console.log(res);
+          
+          setTemplates(res.data.secondarytemplates);
+  
+        } catch (err) {
+          console.error("Error fetching templates:", err);
+        }
+      };
+      fetchTemplates();
+    }, []);
+  
 
   const handleSubmit = () => {
     if (!selectedTemplate) {
@@ -48,7 +64,7 @@ function temptwo() {
       <div className="container pb-5">
         <h2 className="text-center text-white mb-4">Select a Template</h2>
         <div className="row g-4">
-          {templates.map((template) => (
+          {template.map((template) => (
             <div key={template.id} className="col-md-4 mt-3">
               <div
                 className={`card template-card shadow-sm ${selectedTemplate === template.id ? 'border-success border-3' : ''}`}
@@ -61,7 +77,7 @@ function temptwo() {
               >
                 <div style={{ position: 'relative', width: '100%', height: '200px' }}>
                   <Image
-                    src={template.image}
+src={`${imageBasePath}${template.image}`}
                     alt={template.title}
                     fill
                     style={{

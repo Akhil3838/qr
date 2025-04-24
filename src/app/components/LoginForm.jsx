@@ -1,12 +1,16 @@
 import Link from "next/link";
 
 import { useState } from "react";
+import { loginApi } from "../services/allApi";
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 const LoginForm = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    remember: false,
+    // remember: false,
   });
 
   const handleChange = (e) => {
@@ -17,8 +21,33 @@ const LoginForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =  async(e) => {
     e.preventDefault();
+    const result= await loginApi(formData)
+    console.log(result);
+
+    if (result.status === 200) {
+      sessionStorage.setItem("token", result.data.token);
+      // sessionStorage.setItem("existingUser", JSON.stringify(result.data.user));
+      // Show success toast
+      toast.success("Login successful!", {
+        position: "top-center",
+        autoClose: 1000,
+        theme: "colored",
+      });
+      console.log(result);
+      
+
+      setTimeout(() => router.push('/dashboard'), 2000);
+        } else {
+      toast.error("Invalid password or email!", {
+        position: "top-center",
+        autoClose: 1000,
+        theme: "colored",
+      });
+      
+    }
+    
     console.log("Form submitted", formData);
     // Add your login API call here
   };
@@ -72,7 +101,7 @@ const LoginForm = () => {
   <div className="col-xl-12">
     <div className="row d-flex justify-content-center">
       <div className="col-xl-6 col-lg-6 col-sm-12 text-center">
-       <Link href={'/dashboard'}> <button className="shop-btn" type="submit">Login now</button></Link>
+       <button className="shop-btn" type="submit">Login now</button>
 
         {/* Sign Up Link */}
         <p style={{ marginTop: "15px", fontSize: "11px" }}>
