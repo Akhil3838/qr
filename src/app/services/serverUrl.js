@@ -1,4 +1,4 @@
 
 
-export const serverUrl ='http://demo.croniox.xyz/qr/api/v1'
+export const serverUrl ='https://demo.croniox.xyz/qr/api/v1'
 
