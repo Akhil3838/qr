@@ -1,8 +1,7 @@
 import "./globals.css";
 import Script from "next/script";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata = {
   title: "Home Five || Jixic || Responsive HTML 5 Template",
@@ -26,8 +25,6 @@ export default function RootLayout({ children }) {
         {/* Stylesheets */}
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/responsive.css" />
-       
-
       </head>
       <body>
         {children}
@@ -36,19 +33,33 @@ export default function RootLayout({ children }) {
         <button className="scroll-top scroll-to-target style4" data-target="html">
           <span className="icon-down-arrow"></span>
         </button>
+
         <ToastContainer />
 
-
-        {/* Load JavaScript Files */}
+        {/* Load jQuery first */}
         <Script src="/js/jquery.js" strategy="beforeInteractive" />
-        <Script src="/js/appear.js" strategy="lazyOnload" />
+
+        {/* Load scripts that must run before anything else */}
         <Script src="/js/bootstrap.bundle.min.js" strategy="beforeInteractive" />
+        <Script src="/plugins/revolution/js/jquery.themepunch.tools.min.js" strategy="beforeInteractive" />
+        <Script src="/plugins/revolution/js/jquery.themepunch.revolution.min.js" strategy="beforeInteractive" />
+        <Script src="/js/jquery.enllax.min.js" strategy="beforeInteractive" />
+
+        {/* FontAwesome */}
+       <Script
+  src="https://kit.fontawesome.com/abc123xyz.js"
+  crossOrigin="anonymous"
+  strategy="beforeInteractive"
+/>
+
+
+        {/* Other plugin scripts */}
+        <Script src="/js/appear.js" strategy="lazyOnload" />
         <Script src="/js/bootstrap-select.min.js" strategy="lazyOnload" />
         <Script src="/js/isotope.js" strategy="lazyOnload" />
         <Script src="/js/jquery.bootstrap-touchspin.js" strategy="lazyOnload" />
         <Script src="/js/jquery.countTo.js" strategy="lazyOnload" />
         <Script src="/js/jquery.easing.min.js" strategy="lazyOnload" />
-        <Script src="/js/jquery.enllax.min.js" strategy="lazyOnload" />
         <Script src="/js/jquery.fancybox.js" strategy="lazyOnload" />
         <Script src="/js/jquery.mixitup.min.js" strategy="lazyOnload" />
         <Script src="/js/jquery.paroller.min.js" strategy="lazyOnload" />
@@ -61,17 +72,6 @@ export default function RootLayout({ children }) {
         <Script src="/js/slick.js" strategy="lazyOnload" />
         <Script src="/js/parallax.min.js" strategy="lazyOnload" />
 
-
-        {/* <Script src="/froogaloop2.min.js"/> */}
-        {/* <Script src="/assets/html5lightbox/froogaloop2.min.js"/> */}
-
-        <Script
-  src="https://kit.fontawesome.com/your_kit_id.js"
-  crossOrigin="anonymous"
-  strategy="beforeInteractive"
-/>
-
-
         {/* Google Maps */}
         <Script
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBevTAR-V2fDy9gQsQn1xNHBPH2D36kck0"
@@ -80,17 +80,12 @@ export default function RootLayout({ children }) {
         <Script src="/js/gmaps.js" strategy="lazyOnload" />
         <Script src="/js/map-helper.js" strategy="lazyOnload" />
 
-        {/* Plugins */}
+        {/* Language and Time Picker */}
         <Script src="/assets/language-switcher/jquery.polyglot.language.switcher.js" strategy="lazyOnload" />
         <Script src="/assets/timepicker/timePicker.js" strategy="lazyOnload" />
         {/* <Script src="/assets/html5lightbox/html5lightbox.js" strategy="lazyOnload" /> */}
 
-
-
-
-        {/* Revolution Slider */}
-        <Script src="/plugins/revolution/js/jquery.themepunch.revolution.min.js" strategy="lazyOnload" />
-        <Script src="/plugins/revolution/js/jquery.themepunch.tools.min.js" strategy="lazyOnload" />
+        {/* Revolution Slider Extensions */}
         <Script src="/plugins/revolution/js/extensions/revolution.extension.actions.min.js" strategy="lazyOnload" />
         <Script src="/plugins/revolution/js/extensions/revolution.extension.carousel.min.js" strategy="lazyOnload" />
         <Script src="/plugins/revolution/js/extensions/revolution.extension.kenburn.min.js" strategy="lazyOnload" />
@@ -100,6 +95,8 @@ export default function RootLayout({ children }) {
         <Script src="/plugins/revolution/js/extensions/revolution.extension.parallax.min.js" strategy="lazyOnload" />
         <Script src="/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js" strategy="lazyOnload" />
         <Script src="/plugins/revolution/js/extensions/revolution.extension.video.min.js" strategy="lazyOnload" />
+
+        {/* Main Slider Script */}
         <Script src="/js/main-slider-script.js" strategy="lazyOnload" />
 
         {/* Custom Script */}
