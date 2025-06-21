@@ -1,4 +1,4 @@
 
-export const imageBasePath = 'https://thenextindia.com/qr/public/images/primarytemplates/';
+export const imageBasePath = 'http://demo.croniox.xyz/qr/public/images/primarytemplates/';
 
 

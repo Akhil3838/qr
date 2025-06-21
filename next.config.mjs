@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-      domains: ['thenextindia.com'],
+      domains: ['demo.croniox.xyz'],
+      // domains: ['api.qrserver.com'],
     },
   };
   

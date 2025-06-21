@@ -26,7 +26,12 @@ function BusinessForm() {
         // Call your API
         const result=  await qrDataApi(formData,reqHeader);
         console.log(result);
-
+        const business_id=result?.data?.business_id
+        console.log(business_id);
+        // Store in session storage
+if (business_id) {
+  sessionStorage.setItem("business_id", business_id);
+}
             if (result.status === 200) {
               // Show success toast
               toast.success("details Added successfully", {
@@ -36,7 +41,7 @@ function BusinessForm() {
               });
               
         
-              setTimeout(() => router.push('/template'), 1000);
+setTimeout(() => router.push(`/template`), 1000);
                 } else {
               toast.error("", {
                 position: "top-center",
