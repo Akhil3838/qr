@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
         {/* Stylesheets */}
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/responsive.css" />
+        {/* <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css"></link> */}
       </head>
       <body>
         {children}

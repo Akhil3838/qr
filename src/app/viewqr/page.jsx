@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import { paymentVerificationApi } from '../services/allApi';
+import { useRouter } from 'next/navigation'; // use 'next/router' if using Pages Router
 
 function QrVerification() {
   const [paymentId, setPaymentId] = useState("");
@@ -10,6 +11,8 @@ function QrVerification() {
   const [token, setToken] = useState("");
   const [totalAmount, setTotalAmount] = useState("");
   const [isVerified, setIsVerified] = useState(false);
+    const router = useRouter();
+  
 
   const qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=a";
   const utrPlaceholder = "UTR20231115XYZ789";
@@ -43,8 +46,10 @@ function QrVerification() {
   console.log(result);
   
       if (result.status === 200) {
+
         setIsVerified(true);
-        alert("Payment verified successfully!");
+                 router.push('/success');
+
       } else {
         alert("Payment verification failed.");
       }
@@ -65,7 +70,7 @@ function QrVerification() {
       }}
     >
       <Header />
-      <div className="container d-flex justify-content-center align-items-center py-5">
+      <div className="container d-flex justify-content-center align-items-center">
         <div className="card shadow-sm p-3" style={{ width: '100%', maxWidth: '400px' }}>
           <div className="card-body text-center">
             <h3 className="card-title mb-4">Payment Verification</h3>

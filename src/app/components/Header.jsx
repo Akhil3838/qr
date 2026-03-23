@@ -20,7 +20,7 @@ function Header() {
         <div className="header__brand ">
           <Link href="/" className="header__logo-link">
             <img 
-              src="/images/resources/logo-5.png" 
+              src="/images/logopngcut.png" 
               alt="Company Logo" 
               className="header__logo" 
             />
