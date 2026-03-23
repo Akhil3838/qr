@@ -33,6 +33,8 @@ export default function Home() {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
       }}
+      
+      
           >
       <div className="phone float_up_down_two"></div>
       <div className="round-box zoom-fade"></div>
