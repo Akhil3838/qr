@@ -27,12 +27,12 @@ export default function Home() {
 {/* <!-- Start Banner Style5 Area --> */}
 <section
       className="banner-style5-area"
-      style={{
-        backgroundImage: `linear-gradient(to right, rgba(0, 123, 255, 0.6), rgba(255, 0, 150, 0.6)), url(/images/slides/your-new-image.png)`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
+     style={{
+  backgroundColor: '#061244',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+}}
       
       
           >

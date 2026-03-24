@@ -9,14 +9,14 @@ function Banner() {
                 <div className="col-xl-12">
                   <div className="inner">
                     <div className="big-title">
-                      Gaming mode
-                      <br /> the ultimate
-                      <br /> game experience
+                      Create QR Codes  
+                      <br /> Instantly
+                      <br /> Free & Easy
                     </div>
                     <div className="button">
                       <a href="#">
                         <i className="fa fa-download" aria-hidden="true"></i>
-                        Download Jixic V2.0
+                       Generate QR Code
                       </a>
                     </div>
                     <div className="social-share-links">
